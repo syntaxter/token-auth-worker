@@ -13,6 +13,7 @@
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+		let data:any =  request;
+		return new Response(JSON.stringify(data));
 	},
 };
