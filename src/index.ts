@@ -1,18 +1,17 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.toml`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+// Funcion para controlar el acceso de los clientes a las plataformas corporativas
+
+export interface Env {
+	DB: D1Database;
+  }
+
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+		const data = await env.DB.prepare('SELECT * FROM tokens').all();
+		return Response.json({
+			status: 200,
+			data: data,
+		});
+		// return new Response('Hello World!', { status: 404, headers: { 'Content-Type': 'application/json' } });
 	},
 };
