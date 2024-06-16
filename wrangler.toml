@@ -40,6 +40,7 @@ compatibility_date = "2024-06-05"
 binding = "DB"
 database_name = "auth-token-users"
 database_id = "196c5026-ef40-4941-8870-515fae25ff0f"
+preview_database_id = "196c5026-ef40-4941-8870-515fae25ff0f" 
 
 # Bind a dispatch namespace. Use Workers for Platforms to deploy serverless functions programmatically on behalf of your customers.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#dispatch-namespace-bindings-workers-for-platforms
